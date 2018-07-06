@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--采用注释的方式配置bean-->
+    <context:annotation-config></context:annotation-config>
+    <!--配置要 扫描的包-->
+    <context:component-scan base-package="com.test"></context:component-scan>
+    <!--读入配置属性文件-->
+    <!--<context:property-placeholder location="classpath:mq.properties" />-->
+
+    <bean id="mqProducer" class="com.test.MQProducer"></bean>
+
+    <!--通过import resource引入其他xml配置文件时，虽然这里读入配置属性文件，在引入的xml文件
+    可以拿到属性，但是在编写XML文件没有快捷提示且正确写入也会提示 cannot resolve property key
+    所以建议在每个xml移入所需要的配置文件-->
+
+
+    <import resource="classpath:spring/spring-mq.xml"/>
+
+</beans>
