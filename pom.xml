@@ -11,6 +11,7 @@
     <modules>
         <module>mqproducer</module>
         <module>mqconsumer</module>
+        <module>redis</module>
     </modules>
 
     <name>mqproducer</name>
